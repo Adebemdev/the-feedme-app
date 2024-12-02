@@ -42,6 +42,16 @@ const LoginForm = () => {
           fields={registrationFields}
           onSubmit={handleLoginForm}
           buttonText="Login"
+          renderCustomButton={(formData, handleSubmit) => (
+            <div className="w-full">
+              <CustomButton
+                variant="primary"
+                size="large"
+                onClick={handleSubmit}
+                label="Login"
+              />
+            </div>
+          )}
         />
       </div>
       {/* Horizontal line container  */}

@@ -11,7 +11,7 @@ type onboardingMember = {
   id: number
 }
 
-const OnboardingScreen: React.FC = () => {
+const OnboardingScreen = () => {
   const navigate = useNavigate()
   const [showSplash, setShowSplash] = useState<boolean>(true)
   const [currentIndex, setCurrentIndex] = useState<number>(0)

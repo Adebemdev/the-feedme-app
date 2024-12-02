@@ -1,3 +1,4 @@
+import CustomButton from '../../../General/CustomButton'
 import ReusableForm from '../../../General/CustomForm'
 import { iconsLinks } from '../../../constants'
 const RegistrationForm = () => {
@@ -42,7 +43,7 @@ const RegistrationForm = () => {
     console.log('Registration data:', data)
   }
   return (
-    <div className="h-screen w-full bg-slate-50">
+    <div className="h-screen w-full bg-slate-50 p-4">
       <div className="flex h-40 w-full items-center justify-center">
         <h1 className="mt-4 font-sans text-[32px] font-semibold capitalize">
           Registration
@@ -50,11 +51,20 @@ const RegistrationForm = () => {
       </div>
 
       {/* Custom form container */}
-      <div>
+      <div className="">
         <ReusableForm
           fields={registrationFields}
           onSubmit={handleRegistration}
-          buttonText="Sign Up"
+          renderCustomButton={(formData, handleSubmit) => (
+            <div className="w-full">
+              <CustomButton
+                variant="primary"
+                size="large"
+                onClick={handleSubmit}
+                label="Register"
+              />
+            </div>
+          )}
         />
       </div>
       {/* Horizontal line container  */}

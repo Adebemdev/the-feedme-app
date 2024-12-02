@@ -26,35 +26,54 @@
 @tailwind variants;
 
 @layer base {
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
 
-    html {
-        font-size: 62.5%;
-    }
+  html {
+    font-size: 62.5%;
+  }
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: black;
-        min-height: 100vh;
-        line-height: 1.5;
-        font-size: 1.6rem;
-    }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    min-height: 100vh;
+    line-height: 1.5;
+    font-size: 1.6rem;
+  }
 
-    input,
-    button,
-    textarea,
-    select {
-        font: inherit;
-        color: inherit;
-    }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
 
-    button {
-        cursor: pointer;
-    }
+  button {
+    cursor: pointer;
+  }
+}
+.custom-checkbox .ant-checkbox-inner {
+  @apply h-10 w-10 rounded-md;
+}
+
+.custom-checkbox .ant-checkbox:hover .ant-checkbox-inner {
+  @apply border-primaryColor;
+}
+
+.custom-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  @apply border-primaryColor bg-primaryColor;
+}
+
+.custom-checkbox .ant-checkbox-checked:hover .ant-checkbox-inner {
+  @apply border-primaryColor bg-red-500; /* Change background color on hover */
+}
+
+.custom-checkbox .ant-checkbox-inner:active {
+  @apply border-primaryColor bg-primaryColor;
 }

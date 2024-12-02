@@ -1,8 +1,8 @@
 import { ReactElement, ReactNode } from 'react'
 
 // Button variant
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
-type ButtonSize = 'small' | 'medium' | 'large'
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inActive'
+export type ButtonSize = 'small' | 'medium' | 'large'
 
 interface CustomButtonProps {
   variant?: ButtonVariant
@@ -20,6 +20,8 @@ const variantStyles: Record<ButtonVariant, string> = {
   secondary: 'bg-white text-slate-500 hover:red-500 w-full',
   tertiary:
     'bg-white text-primaryColor font-bold hover:red-500 w-full border-[2px]  border-primaryColor',
+  inActive:
+    'bg-red-300 text-gray-200 cursor-default w-full pointer-events-none border border-gray-200',
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -28,14 +30,14 @@ const sizeStyles: Record<ButtonSize, string> = {
   large: 'px-6 py-6 text-4xl ',
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({
+const CustomButton = ({
   size = 'medium',
   variant = 'primary',
   disabled = false,
   onClick,
   label,
   children,
-}) => {
+}: CustomButtonProps) => {
   const baseStyle = 'rounded-2xl focus:outline-none font-sans capitalize'
   const variantStyle = variantStyles[variant]
   const sizeStyle = sizeStyles[size]
@@ -44,7 +46,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || variant === 'inActive'}
       className={`${baseStyle} ${variantStyle} ${sizeStyle} ${disabledStyle} `}
     >
       {label || children}
